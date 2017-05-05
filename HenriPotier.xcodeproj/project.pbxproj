@@ -121,8 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				728DAA671EBA8538009D3F3E /* Book.swift */,
-				728DAA651EBA80C4009D3F3E /* Offer.swift */,
 				728DAA6B1EBD0690009D3F3E /* BookVM.swift */,
+				728DAA651EBA80C4009D3F3E /* Offer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,13 +130,14 @@
 		728DAA6D1EBD0870009D3F3E /* BooksList */ = {
 			isa = PBXGroup;
 			children = (
+				728DAA791EBD3ACD009D3F3E /* BooksListCollectionViewCell.swift */,
+				728DAA701EBD08AB009D3F3E /* BooksListRepository.swift */,
 				72CC76141EBA7B0500A69F54 /* BooksListViewController.swift */,
 				728DAA6E1EBD089F009D3F3E /* BooksListViewModel.swift */,
-				728DAA701EBD08AB009D3F3E /* BooksListRepository.swift */,
 				728DAA721EBD096B009D3F3E /* OffersListRepository.swift */,
-				728DAA791EBD3ACD009D3F3E /* BooksListCollectionViewCell.swift */,
 			);
 			name = BooksList;
+			path = BooksList;
 			sourceTree = "<group>";
 		};
 		728DAA741EBD0A14009D3F3E /* Stubs */ = {
@@ -146,6 +147,7 @@
 				728DAA771EBD28DB009D3F3E /* Offers_200.json */,
 			);
 			name = Stubs;
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 		72CC76061EBA7B0500A69F54 = {
@@ -173,10 +175,10 @@
 		72CC76111EBA7B0500A69F54 /* HenriPotier */ = {
 			isa = PBXGroup;
 			children = (
-				728DAA741EBD0A14009D3F3E /* Stubs */,
 				728DAA6D1EBD0870009D3F3E /* BooksList */,
 				728DAA641EBA802B009D3F3E /* Models */,
 				728DAA631EBA8004009D3F3E /* Network */,
+				728DAA741EBD0A14009D3F3E /* Stubs */,
 				72CC76121EBA7B0500A69F54 /* AppDelegate.swift */,
 				72CC76191EBA7B0500A69F54 /* Assets.xcassets */,
 				72CC761E1EBA7B0500A69F54 /* Info.plist */,
