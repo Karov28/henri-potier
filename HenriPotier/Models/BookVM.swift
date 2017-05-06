@@ -7,13 +7,16 @@
 //
 
 import UIKit
-
+import Sugar
 class BookVM: NSObject {
     
-    var isbn: String
-    var title: String
-    var cover: String
-    var price: Int
+    var isbn: String!
+    var title: String!
+    var cover: String!
+    var price: String!
+    var synopsis: String!
+    
+    
     var isSelected: Bool = false
     
     
@@ -22,7 +25,15 @@ class BookVM: NSObject {
         self.title = book.title
         self.cover = book.cover
         self.isbn = book.isbn
-        self.price = book.price
+        self.price = "\(book.price) " + "currency".localized
+        
+        var full = ""
+        book.synopsis.forEach { part in
+            full.append(part)
+            full.append("\n")
+        }
+        
+        self.synopsis = full
         
     }
 

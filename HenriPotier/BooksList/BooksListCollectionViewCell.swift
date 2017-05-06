@@ -19,7 +19,7 @@ class BooksListCollectionViewCell: UICollectionViewCell {
     func setContentWith(book: BookVM) {
         
         self.titleLabel.text = book.title
-        self.priceLabel.text = "\(book.price) " + "currency".localized
+        self.priceLabel.text = book.price
         
         
         self.coverImageView.kf.setImage(with: URL(string: book.cover), placeholder: UIImage(named: "placeholder"))
