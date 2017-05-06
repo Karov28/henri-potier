@@ -22,6 +22,7 @@ PODS:
   - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
   - RxSwift (3.4.1)
+  - Sugar (3.1.2)
   - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
+  - Sugar
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -44,8 +46,9 @@ SPEC CHECKSUMS:
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
+  Sugar: e2eb40928c2589bf55977e335a5bc183d09cce24
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 30be5955eb4efca65b316de4af7f634a72f3e08b
+PODFILE CHECKSUM: 7229e6fe1d4d5ac0c087ad465393bc505750a906
 
 COCOAPODS: 1.2.1

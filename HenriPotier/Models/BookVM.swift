@@ -13,6 +13,7 @@ class BookVM: NSObject {
     var isbn: String
     var title: String
     var cover: String
+    var price: Int
     var isSelected: Bool = false
     
     
@@ -21,6 +22,7 @@ class BookVM: NSObject {
         self.title = book.title
         self.cover = book.cover
         self.isbn = book.isbn
+        self.price = book.price
         
     }
 

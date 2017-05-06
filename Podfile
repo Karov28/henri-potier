@@ -15,7 +15,8 @@ target 'HenriPotier' do
   pod 'Kingfisher', '~> 3.0'
   pod 'DZNEmptyDataSet'
   pod 'SVProgressHUD'
-
+  pod 'Sugar'
+  
   target 'HenriPotierTests' do
     inherit! :search_paths
     # Pods for testing

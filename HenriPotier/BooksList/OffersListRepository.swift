@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Moya
 
 protocol OffersListRepositoryProtocol {
     
 }
 
 class OffersListRepository: NSObject, OffersListRepositoryProtocol {
-
+    var provider: RxMoyaProvider<LibraryAPI>
+    
+    init(with provider: RxMoyaProvider<LibraryAPI>) {
+        self.provider = provider
+    }
 }

@@ -24,6 +24,7 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
     var disposeBag = DisposeBag()
     
     public var output: BooksListViewModelOutput { return self }
+    public var input: BooksListViewModelInput { return self }
     
     var booksRepository: BooksListRepositoryProtocol
     var offersRepository: OffersListRepositoryProtocol
@@ -51,6 +52,7 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
                     
                     return true
                 })
+                
                 .do(onError: { error in
                     self.displayedBooks.value = []
                 })
