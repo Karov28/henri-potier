@@ -218,13 +218,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPH-LJ-pmO">
-                                                                    <rect key="frame" x="73" y="5" width="201" height="80"/>
+                                                                    <rect key="frame" x="73" y="5" width="194" height="80"/>
                                                                     <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAN-A8-ti1">
-                                                                    <rect key="frame" x="294" y="30" width="73" height="30"/>
+                                                                    <rect key="frame" x="287" y="30" width="73" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="otL-H0-IEh"/>
                                                                         <constraint firstAttribute="width" constant="73" id="wIy-v9-ODt"/>
@@ -242,7 +242,7 @@
                                                                 <constraint firstAttribute="bottom" secondItem="zPH-LJ-pmO" secondAttribute="bottom" constant="4.5" id="elr-6e-CGe"/>
                                                                 <constraint firstItem="DAN-A8-ti1" firstAttribute="centerY" secondItem="vF8-tQ-CYo" secondAttribute="centerY" id="hTu-Sy-lnJ"/>
                                                                 <constraint firstItem="zXd-15-fGS" firstAttribute="top" secondItem="vF8-tQ-CYo" secondAttribute="top" constant="10" id="sHV-Al-HtD"/>
-                                                                <constraint firstAttribute="trailing" secondItem="DAN-A8-ti1" secondAttribute="trailing" constant="8" id="tIR-tO-eEf"/>
+                                                                <constraint firstAttribute="trailing" secondItem="DAN-A8-ti1" secondAttribute="trailing" constant="15" id="tIR-tO-eEf"/>
                                                                 <constraint firstAttribute="bottom" secondItem="zXd-15-fGS" secondAttribute="bottom" constant="10" id="ypF-jC-aB1"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
@@ -300,7 +300,10 @@
                                                     <constraint firstAttribute="height" constant="50" id="VsZ-va-iJI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
-                                                <state key="normal" title="Engage"/>
+                                                <state key="normal" title="Hire"/>
+                                                <connections>
+                                                    <action selector="finishButtonTapped" destination="A6f-rZ-t2G" eventType="touchUpInside" id="kYt-AF-yEX"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -351,11 +354,61 @@
                         <outlet property="tableViewHeightConstraint" destination="HUS-G5-de6" id="Ayx-Qn-sDd"/>
                         <outlet property="totalLabel" destination="mQx-xV-ivl" id="fJn-RK-Vvw"/>
                         <outlet property="totalTitleLabel" destination="tiG-ML-f7G" id="73h-RL-lNf"/>
+                        <segue destination="Rxq-Hj-uoE" kind="show" identifier="showEnd" id="rCa-ci-uAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rso-QB-lOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1853.5999999999999" y="-546.47676161919048"/>
+        </scene>
+        <!--End View Controller-->
+        <scene sceneID="NSf-JW-8fB">
+            <objects>
+                <viewController id="Rxq-Hj-uoE" customClass="EndViewController" customModule="HenriPotier" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VC1-lP-RjL"/>
+                        <viewControllerLayoutGuide type="bottom" id="via-5O-5nz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8w4-Sp-r9j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merci de votre confiance !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10y-bc-y2s">
+                                <rect key="frame" x="16" y="305" width="343" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="23r-ZB-hoN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zZ-pb-aLS">
+                                <rect key="frame" x="98" y="370" width="179" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c5g-VW-RmO"/>
+                                    <constraint firstAttribute="width" constant="179" id="cni-TF-Bov"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="17"/>
+                                <state key="normal" title="Continuer mes achats"/>
+                                <connections>
+                                    <action selector="endButtonTapped" destination="Rxq-Hj-uoE" eventType="touchUpInside" id="1F4-Ue-Vp4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="10y-bc-y2s" firstAttribute="leading" secondItem="8w4-Sp-r9j" secondAttribute="leading" constant="16" id="1ae-VC-tOU"/>
+                            <constraint firstItem="3zZ-pb-aLS" firstAttribute="top" secondItem="10y-bc-y2s" secondAttribute="bottom" constant="8" id="5N2-i4-HFN"/>
+                            <constraint firstAttribute="trailing" secondItem="10y-bc-y2s" secondAttribute="trailing" constant="16" id="99h-Pe-Zjo"/>
+                            <constraint firstItem="10y-bc-y2s" firstAttribute="centerY" secondItem="8w4-Sp-r9j" secondAttribute="centerY" id="JHu-cd-udv"/>
+                            <constraint firstItem="3zZ-pb-aLS" firstAttribute="centerX" secondItem="8w4-Sp-r9j" secondAttribute="centerX" id="wvA-3T-W3a"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S6y-ah-2nF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2640.8000000000002" y="-546.47676161919048"/>
         </scene>
         <!--Book Details View Controller-->
         <scene sceneID="DKs-T8-kgT">

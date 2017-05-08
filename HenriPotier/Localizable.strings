@@ -8,6 +8,8 @@
 
 "ok" = "Ok";
 "info" = "Info";
+"yes" = "Oui";
+"no" = "Non";
 
 "currency" = "€";
 
@@ -22,5 +24,8 @@
 
 "sub_total" = "Sous-total";
 "total" = "Total";
-"end_command" = "Terminer ma commande";
+"finish_order" = "Terminer ma commande";
+
 "hire" = "Embaucher";
+
+"hire_message" = "Souhaitez-vous embaucher M. Rémi Caroff ?";

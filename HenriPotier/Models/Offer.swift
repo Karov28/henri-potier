@@ -20,7 +20,6 @@ class OffersCollection: NSObject, Mappable {
     }
 }
 
-
 class Offer: NSObject, Mappable {
     
     var type: String!

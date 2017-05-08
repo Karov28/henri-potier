@@ -36,5 +36,15 @@ class Registry: NSObject {
         UserDefaults.standard.removeObject(forKey: key)
         UserDefaults.standard.synchronize()
     }
+    
+    func setDisaprovedMode(enabled: Bool) {
+        if enabled {
+            self.set(key: "disaprove", value: "yes")
+        } else {
+            self.del(key: "disaprove")
+        }
+    }
+    
+    
 
 }

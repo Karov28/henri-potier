@@ -30,7 +30,7 @@ class CartViewController: UIViewController, DZNEmptyDataSetSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "your_cart".localized
-        self.engageButton.setTitle("end_command".localized, for: .normal)
+        self.engageButton.setTitle("finish_order".localized, for: .normal)
         self.engageButton.layer.cornerRadius = self.engageButton.frame.size.height/2
         self.subTotalTitleLabel.text = "sub_total".localized
         self.totalLabel.text = "total".localized
@@ -97,8 +97,22 @@ class CartViewController: UIViewController, DZNEmptyDataSetSource {
         
     }
     
-    @IBAction func hireButtonTapped() {
+    @IBAction func finishButtonTapped() {
+        let alert = UIAlertController(title: nil, message: "hire_message".localized, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "yes".localized, style: .default, handler: { action in
+            Registry.instance.setDisaprovedMode(enabled: false)
+            self.viewModel.selectedBooks.value = [CartSection()]
+            self.performSegue(withIdentifier: "showEnd", sender: nil)
+            self.viewModel.input.refresh.onNext(true)
+        }))
+        alert.addAction(UIAlertAction(title: "no".localized, style: .default, handler: { action in
+            Registry.instance.setDisaprovedMode(enabled: true)
+            self.viewModel.selectedBooks.value = [CartSection()]
+            self.navigationController?.popViewController(animated: true)
+            self.viewModel.input.refresh.onNext(true)
+        }))
         
+        self.present(alert, animated: true, completion: nil)
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

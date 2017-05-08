@@ -55,11 +55,9 @@ extension LibraryAPI: TargetType {
         return URLEncoding.default
     }
     
-    
     public var parameters: [String : Any]? {
         return nil
     }
-    
     
     public var task: Task {
         return .request

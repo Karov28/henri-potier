@@ -19,6 +19,7 @@
 		7236AFD21EBF934A00946BC8 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD11EBF934A00946BC8 /* CartItemTableViewCell.swift */; };
 		7236AFD41EC0729500946BC8 /* CartSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD31EC0729500946BC8 /* CartSection.swift */; };
 		7236AFD61EC0EF1B00946BC8 /* Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD51EC0EF1B00946BC8 /* Registry.swift */; };
+		7236AFD81EC0FA5200946BC8 /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD71EC0FA5200946BC8 /* EndViewController.swift */; };
 		728DAA661EBA80C4009D3F3E /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA651EBA80C4009D3F3E /* Offer.swift */; };
 		728DAA681EBA8538009D3F3E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA671EBA8538009D3F3E /* Book.swift */; };
 		728DAA6A1EBA880E009D3F3E /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA691EBA880E009D3F3E /* LibraryAPI.swift */; };
@@ -73,6 +74,7 @@
 		7236AFD11EBF934A00946BC8 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
 		7236AFD31EC0729500946BC8 /* CartSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartSection.swift; sourceTree = "<group>"; };
 		7236AFD51EC0EF1B00946BC8 /* Registry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registry.swift; sourceTree = "<group>"; };
+		7236AFD71EC0FA5200946BC8 /* EndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		728DAA651EBA80C4009D3F3E /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		728DAA671EBA8538009D3F3E /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		728DAA691EBA880E009D3F3E /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
@@ -155,7 +157,6 @@
 				7236AFD31EC0729500946BC8 /* CartSection.swift */,
 				7236AFCF1EBF922F00946BC8 /* CartViewController.swift */,
 			);
-			name = Cart;
 			path = Cart;
 			sourceTree = "<group>";
 		};
@@ -232,6 +233,7 @@
 				728DAA741EBD0A14009D3F3E /* Stubs */,
 				72CC76121EBA7B0500A69F54 /* AppDelegate.swift */,
 				72CC76191EBA7B0500A69F54 /* Assets.xcassets */,
+				7236AFD71EC0FA5200946BC8 /* EndViewController.swift */,
 				72CC761E1EBA7B0500A69F54 /* Info.plist */,
 				72CC761B1EBA7B0500A69F54 /* LaunchScreen.storyboard */,
 				7236AFC51EBDF19500946BC8 /* Localizable.strings */,
@@ -584,6 +586,7 @@
 				7236AFC91EBE1BAF00946BC8 /* BookDetailsViewController.swift in Sources */,
 				72CC76131EBA7B0500A69F54 /* AppDelegate.swift in Sources */,
 				7236AFCD1EBE21F900946BC8 /* DismissAnimator.swift in Sources */,
+				7236AFD81EC0FA5200946BC8 /* EndViewController.swift in Sources */,
 				7236AFD41EC0729500946BC8 /* CartSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
