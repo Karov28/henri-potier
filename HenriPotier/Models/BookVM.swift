@@ -25,12 +25,12 @@ class BookVM: NSObject {
         self.title = book.title
         self.cover = book.cover
         self.isbn = book.isbn
-        self.price = "\(book.price) " + "currency".localized
+        self.price = "\(book.price!) " + "currency".localized
         
         var full = ""
         book.synopsis.forEach { part in
             full.append(part)
-            full.append("\n")
+            full.append("\n\n")
         }
         
         self.synopsis = full

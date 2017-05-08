@@ -13,32 +13,80 @@ import Moya_ObjectMapper
 protocol BooksListViewModelInput {
     var refresh: PublishSubject<Bool> { get set }
     var validateTapped: PublishSubject<Bool> { get set }
+    var bookSelected: PublishSubject<String> { get set }
+    var bookDeleted: PublishSubject<Int> { get set }
 }
 
 protocol BooksListViewModelOutput {
     var displayedBooks: Variable<[BookVM]> { get set }
+    var selectedBooks: Variable<[CartSection]> { get set }
+    
+    func getSubTotalPrice() -> Observable<(Int, String)>
+    func getBestPrice() -> Observable<(Int, String)>
 }
 
 class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelOutput {
-    
+
     var disposeBag = DisposeBag()
     
     public var output: BooksListViewModelOutput { return self }
     public var input: BooksListViewModelInput { return self }
     
-    var booksRepository: BooksListRepositoryProtocol
-    var offersRepository: OffersListRepositoryProtocol
+    private var booksRepository: BooksListRepositoryProtocol
+    private var offersRepository: OffersListRepositoryProtocol
     
     // input
-    var refresh: PublishSubject<Bool> = PublishSubject()
-    var validateTapped: PublishSubject<Bool> = PublishSubject()
+    internal var refresh: PublishSubject<Bool> = PublishSubject()
+    internal var validateTapped: PublishSubject<Bool> = PublishSubject()
+    internal var bookSelected: PublishSubject<String> = PublishSubject()
+    internal var bookDeleted: PublishSubject<Int> = PublishSubject()
     
     // output
-    var displayedBooks: Variable<[BookVM]> = Variable([BookVM]())
+    internal var displayedBooks: Variable<[BookVM]> = Variable([BookVM]())
+    internal var selectedBooks: Variable<[CartSection]> = Variable([CartSection]())
+    
+    private var allBooks: [Book] = [Book]()
     
     init(with booksRepository: BooksListRepositoryProtocol, offersRepository: OffersListRepositoryProtocol) {
         self.booksRepository = booksRepository
         self.offersRepository = offersRepository
+        
+        super.init()
+        
+        self.bookSelected.asObservable()
+            .subscribe(onNext: { bookISBN in
+                if let selected = self.displayedBooks.value.filter({ b -> Bool in
+                    return b.isbn == bookISBN
+                }).last {
+                    
+                    var section = self.selectedBooks.value.last
+                    if section == nil {
+                        section = CartSection()
+                    }
+                    section!.items.append(selected)
+                    self.selectedBooks.value = [section!]
+                }
+             
+            })
+        .disposed(by: disposeBag)
+        
+        
+        self.bookDeleted.asObservable()
+            .subscribe(onNext: { index in
+                var section = self.selectedBooks.value.last!
+                section.items.remove(at: index)
+                self.selectedBooks.value = [section]
+            })
+        .disposed(by: disposeBag)
+    }
+    
+    func getSelectedBooksCount() -> Int {
+        
+        if let section = self.selectedBooks.value.last {
+            return section.items.count
+        }
+        
+        return 0
     }
     
     func getBooks() -> Observable<Bool> {
@@ -46,6 +94,7 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
             return self.booksRepository.getBooks()
                 .mapArray(Book.self)
                 .map({ books -> Bool in
+                    self.allBooks = books
                     self.displayedBooks.value = books.map({ book -> BookVM in
                         return BookVM(with: book)
                     })
@@ -57,10 +106,79 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
                     self.displayedBooks.value = []
                 })
         })
-        
-        
     }
     
+    private func getSelectedBooks() -> [Book] {
+        let isbns = self.selectedBooks.value.last!.items.map({return $0.isbn})
+        var b = [Book]()
+        isbns.forEach { isbn in
+            if allBooks.contains(where: { book -> Bool in
+                book.isbn == isbn
+            }){
+                b.append(self.allBooks.filter({ return $0.isbn == isbn }).last!)
+            }
+        }
+    
+        return b
+    }
+    
+    func getSubTotalPrice() -> Observable<(Int, String)> {
+        return self.selectedBooks.asObservable()
+        .flatMapLatest({ cartSection -> Observable<(Int, String)> in
+            var total = 0
+            self.getSelectedBooks().forEach {
+                total += $0.price
+            }
+            return Observable.just((total, "\(total) "+"currency".localized))
+        })
+    }
+    
+    
+    func getBestPrice() -> Observable<(Int, String)> {
+        
+        return self.getSubTotalPrice()
+        .flatMapLatest({ (subtotal, formattedString) -> Observable<(Int, Offer?)> in
+            return self.getBestOffer(subTotal: subtotal)
+        })
+        .flatMapLatest({ (subTotal, offer) -> Observable<(Int, String)> in
+            if offer == nil {
+                return Observable.just((subTotal, "\(subTotal) "+"currency".localized))
+            } else {
+                var priceWithReduc = subTotal - offer!.getAbsoluteReductionFor(price: subTotal)
+                if priceWithReduc < 0 {
+                    priceWithReduc = 0
+                }
+                return Observable.just((priceWithReduc, "\(priceWithReduc) "+"currency".localized))
+            }
+        })
+    }
+    
+    private func getBestOffer(subTotal: Int) -> Observable<(Int, Offer?)> {
+        return self.getOffers()
+        .flatMapLatest({ collection -> Observable<(Int, Offer?)> in
+            var bestOffer: Offer?
+            collection.offers.forEach({ offer in
+                if bestOffer == nil {
+                    bestOffer = offer
+                } else {
+                    if bestOffer!.getAbsoluteReductionFor(price: subTotal) < offer.getAbsoluteReductionFor(price: subTotal) {
+                        bestOffer = offer
+                    }
+                }
+            })
+            
+            return Observable.just((subTotal, bestOffer))
+        })
+    }
+    
+    private func getOffers() -> Observable<OffersCollection> {
+        let isbns = self.selectedBooks.value.last!.items.map({return $0.isbn})
+        return self.offersRepository.getOffers(books: isbns as! [String])
+        .mapObject(OffersCollection.self)
+        .do(onError: { error in
+            
+        })
+    }
     
 
 }

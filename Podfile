@@ -11,6 +11,7 @@ target 'HenriPotier' do
   pod 'Alamofire', '~> 4.4'
   pod 'RxSwift',    '~> 3.0'
   pod 'RxCocoa',    '~> 3.0'
+  pod 'RxDataSources', '~> 1.0'
   pod 'Moya-ObjectMapper/RxSwift'
   pod 'Kingfisher', '~> 3.0'
   pod 'DZNEmptyDataSet'

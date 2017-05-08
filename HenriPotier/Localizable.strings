@@ -6,8 +6,21 @@
   Copyright © 2017 Rémi Caroff. All rights reserved.
 */
 
+"ok" = "Ok";
+"info" = "Info";
 
 "currency" = "€";
 
 "add_to_cart" = "Ajouter au panier";
 "synopsis" = "Synopsis";
+"item_in_basket" = "article dans votre panier";
+"items_in_basket" = "articles dans votre panier";
+
+"your_cart" = "Votre panier";
+"empty_basket_placeholder" = "Votre panier est vide";
+"no_selection_alert" = "Vous n'avez encore ajouté aucun produit.";
+
+"sub_total" = "Sous-total";
+"total" = "Total";
+"end_command" = "Terminer ma commande";
+"hire" = "Embaucher";

@@ -45,11 +45,11 @@ class BookDetailsViewController: UIViewController, UIScrollViewDelegate {
         self.addToCartButton.setTitle("add_to_cart".localized, for: .normal)
         self.addToCartButton.layer.cornerRadius = self.addToCartButton.frame.size.height/2
         
-        
     }
 
     @IBAction func addToCartButtonTapped() {
         self.delegate.didAddBookToCart(bookISBN: self.selectedBook.isbn)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

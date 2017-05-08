@@ -8,9 +8,10 @@
 
 import UIKit
 import Moya
+import RxSwift
 
 protocol OffersListRepositoryProtocol {
-    
+    func getOffers(books: [String]) -> Observable<Response>
 }
 
 class OffersListRepository: NSObject, OffersListRepositoryProtocol {
@@ -18,5 +19,14 @@ class OffersListRepository: NSObject, OffersListRepositoryProtocol {
     
     init(with provider: RxMoyaProvider<LibraryAPI>) {
         self.provider = provider
+    }
+    
+    func getOffers(books: [String]) -> Observable<Response> {
+        
+        return self.provider.request(.getOffers(isbns: books))
+        .filterSuccessfulStatusAndRedirectCodes()
+        .observeOn(MainScheduler.instance)
+        .debug()
+        
     }
 }

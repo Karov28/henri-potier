@@ -75,14 +75,14 @@ extension LibraryAPI: TargetType {
         switch self {
         case .getBooks:
             return self.getDataFrom(jsonFile: "Books_200")
-        default:
-            return Data()
+        case .getOffers:
+            return self.getDataFrom(jsonFile: "Offers_200")
         }
         
     }
     
     private func getDataFrom(jsonFile: String) -> Data {
-        if let stubURL = Bundle.main.url(forResource: "Books_200", withExtension: "json", subdirectory: "Stubs") {
+        if let stubURL = Bundle.main.url(forResource: jsonFile, withExtension: "json") {
             do {
                 return try Data(contentsOf: stubURL)
             } catch (let error) {

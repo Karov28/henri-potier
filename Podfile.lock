@@ -21,6 +21,9 @@ PODS:
   - Result (3.2.1)
   - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
+  - RxDataSources (1.0.3):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - RxSwift (3.4.1)
   - Sugar (3.1.2)
   - SVProgressHUD (2.1.2)
@@ -32,6 +35,7 @@ DEPENDENCIES:
   - Moya-ObjectMapper/RxSwift
   - Moya/RxSwift
   - RxCocoa (~> 3.0)
+  - RxDataSources (~> 1.0)
   - RxSwift (~> 3.0)
   - Sugar
   - SVProgressHUD
@@ -45,10 +49,11 @@ SPEC CHECKSUMS:
   ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
+  RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   Sugar: e2eb40928c2589bf55977e335a5bc183d09cce24
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 7229e6fe1d4d5ac0c087ad465393bc505750a906
+PODFILE CHECKSUM: 99716a6334817ee093d74b9ce468f20d66c41d8b
 
 COCOAPODS: 1.2.1

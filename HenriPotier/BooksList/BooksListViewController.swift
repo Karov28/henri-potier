@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Sugar
 
 class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLayout, BookDetailsViewControllerDelegate {
     
@@ -18,6 +19,9 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     @IBOutlet var collectionView: UICollectionView!
     var viewModel: BooksListViewModel!
+    
+    @IBOutlet var cartLabel: UILabel!
+    @IBOutlet var cartButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,16 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
             cell.setContentWith(book: model)
         }
         .disposed(by: disposeBag)
+        
+        self.viewModel.output.selectedBooks.asObservable()
+        .bind { selectedBooks in
+            if self.viewModel.getSelectedBooksCount() > 1 {
+                self.cartLabel.text = "\(self.viewModel.getSelectedBooksCount()) "+"items_in_basket".localized
+            } else {
+                self.cartLabel.text = "\(self.viewModel.getSelectedBooksCount()) "+"item_in_basket".localized
+            }
+        }
+        .addDisposableTo(disposeBag)
     }
     
     func setupCollectionView() {
@@ -54,7 +68,17 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     func didAddBookToCart(bookISBN: String) {
-        
+        self.viewModel.input.bookSelected.onNext(bookISBN)
+    }
+    
+    @IBAction func cartButtonTapped() {
+        if self.viewModel.getSelectedBooksCount() == 0 {
+            let alert = UIAlertController(title: "info".localized, message: "no_selection_alert".localized, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        self.performSegue(withIdentifier: "showCart", sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -75,6 +99,11 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
             let destVC = segue.destination as! BookDetailsViewController
             destVC.delegate = self
             destVC.selectedBook = sender as! BookVM
+        }
+        
+        if segue.identifier == "showCart" {
+            let destVC = segue.destination as! CartViewController
+            destVC.viewModel = viewModel
         }
     }
 }

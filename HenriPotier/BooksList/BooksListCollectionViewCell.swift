@@ -21,7 +21,6 @@ class BooksListCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = book.title
         self.priceLabel.text = book.price
         
-        
         self.coverImageView.kf.setImage(with: URL(string: book.cover), placeholder: UIImage(named: "placeholder"))
         self.backgroundIV.kf.setImage(with: URL(string: book.cover), placeholder: UIImage(named: "placeholder"))
     }

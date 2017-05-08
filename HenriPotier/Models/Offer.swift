@@ -37,4 +37,30 @@ class Offer: NSObject, Mappable {
         
     }
     
+    func getAbsoluteReductionFor(price: Int) -> Int {
+        if type == "slice" {
+            return self.getSliceReduction(price: price)
+        }
+        
+        if type == "minus" {
+            return value
+        }
+        
+        if type == "percentage" {
+            return self.getPercentageReduction(price:price)
+        }
+        
+        return 0
+    }
+    
+    func getSliceReduction(price: Int) -> Int {
+        let slices = Int(trunc(Double(price/sliceValue!)))
+        return slices*value!
+    }
+    
+    
+    func getPercentageReduction(price: Int) -> Int {
+        return price * (value / 100)
+    }
+    
 }
