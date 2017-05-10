@@ -10,12 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Sugar
+import DZNEmptyDataSet
+import ReachabilitySwift
 
-class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLayout, BookDetailsViewControllerDelegate {
+class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLayout, BookDetailsViewControllerDelegate, DZNEmptyDataSetSource {
     
     var disposeBag = DisposeBag()
-    
-    let interactor = Interactor()
+    let reachability = Reachability()!
     
     @IBOutlet var collectionView: UICollectionView!
     var viewModel: BooksListViewModel!
@@ -32,11 +33,30 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
         self.setupInput()
         self.setupCollectionView()
         self.refresh()
+        self.setupReachability()
     }
+    
+    func setupReachability() {
+        reachability.whenReachable = { reachability in
+            DispatchQueue.main.async {
+                self.setupInput()
+                self.refresh()
+            }
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+    
 
     func setupInput() {
         self.viewModel.getBooks()
         .subscribe(onNext: { success in
+            self.refreshControl.endRefreshing()
+        }, onError: { error in
             self.refreshControl.endRefreshing()
         })
         .disposed(by: disposeBag)
@@ -61,7 +81,7 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     func setupCollectionView() {
-        
+        self.collectionView.emptyDataSetSource = self
         self.refreshControl.addTarget(self, action: #selector(BooksListViewController.refresh), for: .valueChanged)
         if #available(iOS 10.0, *) {
             self.collectionView.refreshControl = self.refreshControl
@@ -74,7 +94,6 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
                 self.performSegue(withIdentifier: "showDetails", sender: model)
             })
         .disposed(by: disposeBag)
-        
     }
     
     func refresh() {
@@ -96,7 +115,7 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.size.width/2-10, height: (self.view.frame.size.width/2)*1.3)
+        return CGSize(width: self.view.frame.size.width/2-10, height: (self.view.frame.size.width/2)*1.4)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -120,15 +139,14 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
             destVC.viewModel = viewModel
         }
     }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        if self.reachability.currentReachabilityStatus == .notReachable {
+            return NSAttributedString(string: "no_reachability".localized)
+        }
+        return NSAttributedString(string: "no_data".localized)
+    }
 }
 
 
-//extension BooksListViewController: UIViewControllerTransitioningDelegate {
-//    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return DismissAnimator()
-//    }
-//    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        return interactor.hasStarted ? interactor : nil
-//    }
-//}
 

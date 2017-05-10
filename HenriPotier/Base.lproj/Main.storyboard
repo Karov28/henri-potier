@@ -55,7 +55,7 @@
                                                         <constraint firstAttribute="height" constant="120" id="pC4-qF-ILr"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbC-Ku-nCI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="IbC-Ku-nCI">
                                                     <rect key="frame" x="10" y="141" width="139" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="68" id="VwG-fT-mfR"/>
@@ -452,7 +452,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-EQ-Aea">
                                         <rect key="frame" x="0.0" y="215" width="375" height="209"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vib-aP-IQf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vib-aP-IQf">
                                                 <rect key="frame" x="15" y="16" width="345" height="21.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="250" constant="21" id="OXQ-LE-eo7"/>
@@ -526,10 +526,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQR-LA-VBT">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="199"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="199" id="MhR-dQ-IXz"/>
-                                        </constraints>
+                                        <rect key="frame" x="110" y="20" width="154" height="178"/>
                                         <connections>
                                             <action selector="imageButtonTapped" destination="fsb-cE-nDM" eventType="touchUpInside" id="smg-18-a34"/>
                                         </connections>
@@ -537,14 +534,11 @@
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="MQR-LA-VBT" secondAttribute="trailing" id="2n4-HV-XhP"/>
+                                    <constraint firstItem="BKM-EQ-Aea" firstAttribute="top" secondItem="YVZ-sA-Hbb" secondAttribute="top" constant="215" id="0qK-9P-QPV"/>
                                     <constraint firstAttribute="trailing" secondItem="BKM-EQ-Aea" secondAttribute="trailing" id="3af-9o-N5M"/>
-                                    <constraint firstItem="MQR-LA-VBT" firstAttribute="leading" secondItem="YVZ-sA-Hbb" secondAttribute="leading" id="52D-at-vCx"/>
                                     <constraint firstItem="BKM-EQ-Aea" firstAttribute="width" secondItem="YVZ-sA-Hbb" secondAttribute="width" id="U7Z-uQ-Dps"/>
                                     <constraint firstItem="BKM-EQ-Aea" firstAttribute="leading" secondItem="YVZ-sA-Hbb" secondAttribute="leading" id="Yrf-Y9-bQr"/>
                                     <constraint firstAttribute="bottom" secondItem="BKM-EQ-Aea" secondAttribute="bottom" id="Zwr-Sl-oTD"/>
-                                    <constraint firstItem="BKM-EQ-Aea" firstAttribute="top" secondItem="MQR-LA-VBT" secondAttribute="bottom" constant="8" id="ceF-QI-B7W"/>
-                                    <constraint firstItem="MQR-LA-VBT" firstAttribute="top" secondItem="YVZ-sA-Hbb" secondAttribute="top" constant="8" id="j4s-Bf-e16"/>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvK-nb-2B8">
@@ -570,10 +564,14 @@
                             <constraint firstItem="bA5-DL-eax" firstAttribute="top" secondItem="YVZ-sA-Hbb" secondAttribute="bottom" id="DSv-kx-pNW"/>
                             <constraint firstAttribute="trailing" secondItem="tGW-sF-TWO" secondAttribute="trailing" id="Izj-w6-EKI"/>
                             <constraint firstAttribute="trailing" secondItem="El9-NL-4m4" secondAttribute="trailing" id="LJT-zF-w7D"/>
+                            <constraint firstItem="MQR-LA-VBT" firstAttribute="width" secondItem="4US-HL-l9V" secondAttribute="width" id="MUU-KB-Bwc"/>
                             <constraint firstItem="tGW-sF-TWO" firstAttribute="leading" secondItem="bGc-8X-eRY" secondAttribute="leading" id="Taw-oa-56k"/>
                             <constraint firstItem="El9-NL-4m4" firstAttribute="leading" secondItem="bGc-8X-eRY" secondAttribute="leading" id="Tfk-hA-slT"/>
+                            <constraint firstItem="MQR-LA-VBT" firstAttribute="centerY" secondItem="4US-HL-l9V" secondAttribute="centerY" id="VUC-Cu-3Je"/>
                             <constraint firstItem="YVZ-sA-Hbb" firstAttribute="leading" secondItem="bGc-8X-eRY" secondAttribute="leading" id="dtf-pD-fxB"/>
                             <constraint firstItem="4US-HL-l9V" firstAttribute="centerX" secondItem="bGc-8X-eRY" secondAttribute="centerX" id="eqB-ZT-SjE"/>
+                            <constraint firstItem="MQR-LA-VBT" firstAttribute="centerX" secondItem="4US-HL-l9V" secondAttribute="centerX" id="h4T-A4-fVK"/>
+                            <constraint firstItem="MQR-LA-VBT" firstAttribute="height" secondItem="4US-HL-l9V" secondAttribute="height" id="pht-QB-pgH"/>
                             <constraint firstItem="UvK-nb-2B8" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" constant="7" id="sMu-m3-TsZ"/>
                             <constraint firstItem="YVZ-sA-Hbb" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" id="xst-u7-m7w"/>
                         </constraints>

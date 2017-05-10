@@ -22,7 +22,7 @@ class CartViewController: UIViewController, DZNEmptyDataSetSource {
     @IBOutlet var totalTitleLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var engageButton: UIButton!
-    
+    @IBOutlet var offerLabel: UILabel!
     @IBOutlet var tableViewHeightConstraint: NSLayoutConstraint!
     
     var viewModel: BooksListViewModel!
@@ -36,6 +36,7 @@ class CartViewController: UIViewController, DZNEmptyDataSetSource {
         self.totalLabel.text = "total".localized
         self.tableView.emptyDataSetSource = self
         
+        self.setupViewModelError()
         self.setupOutput()
         self.setupInput()
     }
@@ -92,9 +93,23 @@ class CartViewController: UIViewController, DZNEmptyDataSetSource {
         self.viewModel.output.getBestPrice()
             .subscribe(onNext: { (_, priceFormatted) in
                 self.totalLabel.text = priceFormatted
+            }, onError: { error in
+                print("error getting best price : \(error.localizedDescription)")
             })
         .disposed(by: disposeBag)
         
+    }
+    
+    func setupViewModelError() {
+        self.viewModel.viewModelError.asObservable()
+            .subscribe(onNext: { apiError in
+                let alert = UIAlertController(title: "error".localized, message: apiError.message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: { action in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            })
+        .disposed(by: disposeBag)
     }
     
     @IBAction func finishButtonTapped() {

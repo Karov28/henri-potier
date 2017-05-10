@@ -13,14 +13,13 @@
 		7236AFC41EBDE5C600946BC8 /* Preloader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7236AFC31EBDE5C600946BC8 /* Preloader.storyboard */; };
 		7236AFC61EBDF19500946BC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7236AFC51EBDF19500946BC8 /* Localizable.strings */; };
 		7236AFC91EBE1BAF00946BC8 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFC81EBE1BAF00946BC8 /* BookDetailsViewController.swift */; };
-		7236AFCB1EBE21CE00946BC8 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFCA1EBE21CE00946BC8 /* Interactor.swift */; };
-		7236AFCD1EBE21F900946BC8 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFCC1EBE21F900946BC8 /* DismissAnimator.swift */; };
 		7236AFD01EBF922F00946BC8 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFCF1EBF922F00946BC8 /* CartViewController.swift */; };
 		7236AFD21EBF934A00946BC8 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD11EBF934A00946BC8 /* CartItemTableViewCell.swift */; };
 		7236AFD41EC0729500946BC8 /* CartSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD31EC0729500946BC8 /* CartSection.swift */; };
 		7236AFD61EC0EF1B00946BC8 /* Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD51EC0EF1B00946BC8 /* Registry.swift */; };
 		7236AFD81EC0FA5200946BC8 /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFD71EC0FA5200946BC8 /* EndViewController.swift */; };
 		7236AFDB1EC3902100946BC8 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7236AFDA1EC3902100946BC8 /* UIView+Shadow.swift */; };
+		728B62B81EC3A2970041270C /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728B62B71EC3A2970041270C /* APIError.swift */; };
 		728DAA661EBA80C4009D3F3E /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA651EBA80C4009D3F3E /* Offer.swift */; };
 		728DAA681EBA8538009D3F3E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA671EBA8538009D3F3E /* Book.swift */; };
 		728DAA6A1EBA880E009D3F3E /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA691EBA880E009D3F3E /* LibraryAPI.swift */; };
@@ -69,14 +68,13 @@
 		7236AFC31EBDE5C600946BC8 /* Preloader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preloader.storyboard; sourceTree = "<group>"; };
 		7236AFC51EBDF19500946BC8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7236AFC81EBE1BAF00946BC8 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
-		7236AFCA1EBE21CE00946BC8 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
-		7236AFCC1EBE21F900946BC8 /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
 		7236AFCF1EBF922F00946BC8 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		7236AFD11EBF934A00946BC8 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
 		7236AFD31EC0729500946BC8 /* CartSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartSection.swift; sourceTree = "<group>"; };
 		7236AFD51EC0EF1B00946BC8 /* Registry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Registry.swift; sourceTree = "<group>"; };
 		7236AFD71EC0FA5200946BC8 /* EndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		7236AFDA1EC3902100946BC8 /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		728B62B71EC3A2970041270C /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		728DAA651EBA80C4009D3F3E /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		728DAA671EBA8538009D3F3E /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		728DAA691EBA880E009D3F3E /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
@@ -146,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				7236AFC81EBE1BAF00946BC8 /* BookDetailsViewController.swift */,
-				7236AFCC1EBE21F900946BC8 /* DismissAnimator.swift */,
-				7236AFCA1EBE21CE00946BC8 /* Interactor.swift */,
 			);
 			path = BookDetails;
 			sourceTree = "<group>";
@@ -167,7 +163,6 @@
 			children = (
 				7236AFDA1EC3902100946BC8 /* UIView+Shadow.swift */,
 			);
-			name = Helpers;
 			path = Helpers;
 			sourceTree = "<group>";
 		};
@@ -182,6 +177,7 @@
 		728DAA641EBA802B009D3F3E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				728B62B71EC3A2970041270C /* APIError.swift */,
 				728DAA671EBA8538009D3F3E /* Book.swift */,
 				728DAA6B1EBD0690009D3F3E /* BookVM.swift */,
 				728DAA651EBA80C4009D3F3E /* Offer.swift */,
@@ -373,6 +369,7 @@
 				TargetAttributes = {
 					72CC760E1EBA7B0500A69F54 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = RK9N2K2KQ7;
 						ProvisioningStyle = Automatic;
 					};
 					72CC76221EBA7B0500A69F54 = {
@@ -589,16 +586,15 @@
 				728DAA6C1EBD0690009D3F3E /* BookVM.swift in Sources */,
 				728DAA6A1EBA880E009D3F3E /* LibraryAPI.swift in Sources */,
 				728DAA661EBA80C4009D3F3E /* Offer.swift in Sources */,
+				728B62B81EC3A2970041270C /* APIError.swift in Sources */,
 				7236AFC21EBDE08800946BC8 /* PreloaderViewController.swift in Sources */,
 				7236AFD01EBF922F00946BC8 /* CartViewController.swift in Sources */,
 				72CC76151EBA7B0500A69F54 /* BooksListViewController.swift in Sources */,
-				7236AFCB1EBE21CE00946BC8 /* Interactor.swift in Sources */,
 				728DAA711EBD08AB009D3F3E /* BooksListRepository.swift in Sources */,
 				728DAA731EBD096B009D3F3E /* OffersListRepository.swift in Sources */,
 				7236AFC91EBE1BAF00946BC8 /* BookDetailsViewController.swift in Sources */,
 				72CC76131EBA7B0500A69F54 /* AppDelegate.swift in Sources */,
 				7236AFDB1EC3902100946BC8 /* UIView+Shadow.swift in Sources */,
-				7236AFCD1EBE21F900946BC8 /* DismissAnimator.swift in Sources */,
 				7236AFD81EC0FA5200946BC8 /* EndViewController.swift in Sources */,
 				7236AFD41EC0729500946BC8 /* CartSection.swift in Sources */,
 			);
@@ -755,6 +751,7 @@
 			baseConfigurationReference = 6B2036FDE11FCD730C2A97FC /* Pods-HenriPotier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RK9N2K2KQ7;
 				INFOPLIST_FILE = HenriPotier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karov.HenriPotier;
@@ -768,6 +765,7 @@
 			baseConfigurationReference = EB86978C2D1DAA26AD51A515 /* Pods-HenriPotier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RK9N2K2KQ7;
 				INFOPLIST_FILE = HenriPotier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karov.HenriPotier;

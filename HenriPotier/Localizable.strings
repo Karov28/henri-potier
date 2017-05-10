@@ -29,3 +29,8 @@
 "hire" = "Embaucher";
 
 "hire_message" = "Souhaitez-vous embaucher M. Rémi Caroff ?";
+
+
+"error_reachability" = "Une erreur s'est produite, veuillez vérifier l'état de votre connexion.";
+"no_reachability" = "Aucune connexion";
+"no_data" = "Aucune donnée";

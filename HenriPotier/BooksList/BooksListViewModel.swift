@@ -8,7 +8,12 @@
 
 import UIKit
 import RxSwift
+import Moya
 import Moya_ObjectMapper
+
+protocol ViewModelError {
+    var viewModelError: PublishSubject<APIError> { get set }
+}
 
 protocol BooksListViewModelInput {
     var refresh: PublishSubject<Bool> { get set }
@@ -25,8 +30,8 @@ protocol BooksListViewModelOutput {
     func getBestPrice() -> Observable<(Int, String)>
 }
 
-class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelOutput {
-
+class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelOutput, ViewModelError {
+    var viewModelError: PublishSubject<APIError> = PublishSubject()
     var disposeBag = DisposeBag()
     
     public var output: BooksListViewModelOutput { return self }
@@ -104,6 +109,7 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
                 
                 .do(onError: { error in
                     self.displayedBooks.value = []
+                    
                 })
         })
     }
@@ -138,6 +144,9 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
         
         return self.getSubTotalPrice()
         .flatMapLatest({ (subtotal, formattedString) -> Observable<(Int, Offer?)> in
+            if subtotal == 0 {
+                return Observable.just((0, nil))
+            }
             return self.getBestOffer(subTotal: subtotal)
         })
         .flatMapLatest({ (subTotal, offer) -> Observable<(Int, String)> in
@@ -174,9 +183,18 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
     private func getOffers() -> Observable<OffersCollection> {
         let isbns = self.selectedBooks.value.last!.items.map({return $0.isbn})
         return self.offersRepository.getOffers(books: isbns as! [String])
+        .map({ response -> Response in
+            if response.statusCode == 404 {
+                let json = ["offers":[]]
+                let data = try! JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions(rawValue: 0))
+                return Response(statusCode: response.statusCode, data: data)
+            }
+            
+            return response
+        })
         .mapObject(OffersCollection.self)
         .do(onError: { error in
-            
+            print("error getting offers : \(error.localizedDescription)")
         })
     }
     

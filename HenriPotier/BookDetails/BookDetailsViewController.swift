@@ -17,8 +17,6 @@ protocol BookDetailsViewControllerDelegate {
 
 class BookDetailsViewController: UIViewController, UIScrollViewDelegate {
     
-    var interactor:Interactor? = nil
-    
     @IBOutlet var dismissButton: UIButton!
     
     @IBOutlet var backgroundIV: UIImageView!
@@ -27,7 +25,6 @@ class BookDetailsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var synopsisTitleLabel: UILabel!
     @IBOutlet var synopsisBodyLabel: UILabel!
-    @IBOutlet var topView: UIView!
     @IBOutlet var addToCartButton: UIButton!
     
     var selectedBook: BookVM!
@@ -69,37 +66,6 @@ class BookDetailsViewController: UIViewController, UIScrollViewDelegate {
         let viewer = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
         present(viewer, animated: true, completion: nil)
     }
-    
-//    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
-//        let percentThreshold:CGFloat = 0.3
-//        
-//        // convert y-position to downward pull progress (percentage)
-//        let translation = sender.translation(in: self.topView)
-//        let verticalMovement = translation.y / view.bounds.height
-//        let downwardMovement = fmaxf(Float(verticalMovement), 0.0)
-//        let downwardMovementPercent = fminf(downwardMovement, 1.0)
-//        let progress = CGFloat(downwardMovementPercent)
-//        guard let interactor = interactor else { return }
-//        
-//        switch sender.state {
-//        case .began:
-//            interactor.hasStarted = true
-//            dismiss(animated: true, completion: nil)
-//        case .changed:
-//            interactor.shouldFinish = progress > percentThreshold
-//            interactor.update(progress)
-//        case .cancelled:
-//            interactor.hasStarted = false
-//            interactor.cancel()
-//        case .ended:
-//            interactor.hasStarted = false
-//            interactor.shouldFinish
-//                ? interactor.finish()
-//                : interactor.cancel()
-//        default:
-//            break
-//        }
-//    }
-    
+
 
 }

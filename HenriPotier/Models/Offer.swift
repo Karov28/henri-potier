@@ -13,6 +13,10 @@ class OffersCollection: NSObject, Mappable {
     
     var offers: [Offer] = []
     
+    override init() {
+        super.init()
+    }
+    
     required init?(map: Map) { }
     
     func mapping(map: Map) {
@@ -25,6 +29,7 @@ class Offer: NSObject, Mappable {
     var type: String!
     var value: Int!
     var sliceValue: Int?
+ 
     
     required init?(map: Map) { }
     
@@ -35,6 +40,7 @@ class Offer: NSObject, Mappable {
         sliceValue <- map["sliceValue"]
         
     }
+    
     
     func getAbsoluteReductionFor(price: Int) -> Int {
         if type == "slice" {

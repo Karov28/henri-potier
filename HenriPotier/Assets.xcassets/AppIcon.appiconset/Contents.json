@@ -1,43 +1,51 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneNotification_20pt@2x.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneNotification_20pt@3x.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneSpootlight5_29pt@2x.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneSpootlight5_29pt@3x.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneSpootlight7_40pt@2x.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneSpootlight7_40pt@3x.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneApp_60pt@2x.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "harry_potter_1600 copieiPhoneApp_60pt@3x.png",
       "scale" : "3x"
     }
   ],
