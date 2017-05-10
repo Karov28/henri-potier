@@ -22,20 +22,22 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     @IBOutlet var cartLabel: UILabel!
     @IBOutlet var cartButton: UIButton!
-
+    
+    private var refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.setupOutput()
         self.setupInput()
         self.setupCollectionView()
-        self.viewModel.input.refresh.onNext(true)
+        self.refresh()
     }
 
     func setupInput() {
         self.viewModel.getBooks()
         .subscribe(onNext: { success in
-            
+            self.refreshControl.endRefreshing()
         })
         .disposed(by: disposeBag)
     }
@@ -60,11 +62,23 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     func setupCollectionView() {
         
+        self.refreshControl.addTarget(self, action: #selector(BooksListViewController.refresh), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            self.collectionView.refreshControl = self.refreshControl
+        } else {
+            self.collectionView.backgroundView = self.refreshControl
+        }
+        
         self.collectionView.rx.modelSelected(BookVM.self)
             .subscribe(onNext: { model in
                 self.performSegue(withIdentifier: "showDetails", sender: model)
             })
         .disposed(by: disposeBag)
+        
+    }
+    
+    func refresh() {
+        self.viewModel.input.refresh.onNext(true)
     }
     
     func didAddBookToCart(bookISBN: String) {
