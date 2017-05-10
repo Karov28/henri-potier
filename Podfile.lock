@@ -18,6 +18,7 @@ PODS:
     - Moya/Core
     - RxSwift (~> 3.0)
   - ObjectMapper (2.2.6)
+  - ReachabilitySwift (3)
   - Result (3.2.1)
   - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Kingfisher (~> 3.0)
   - Moya-ObjectMapper/RxSwift
   - Moya/RxSwift
+  - ReachabilitySwift (~> 3)
   - RxCocoa (~> 3.0)
   - RxDataSources (~> 1.0)
   - RxSwift (~> 3.0)
@@ -47,6 +49,7 @@ SPEC CHECKSUMS:
   Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
   Moya-ObjectMapper: 952be2b261d38cf8d973b7e429708eb03d256e23
   ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
@@ -54,6 +57,6 @@ SPEC CHECKSUMS:
   Sugar: e2eb40928c2589bf55977e335a5bc183d09cce24
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 99716a6334817ee093d74b9ce468f20d66c41d8b
+PODFILE CHECKSUM: f6ff3618f573eb9cba4c8977112025a808574359
 
 COCOAPODS: 1.2.1

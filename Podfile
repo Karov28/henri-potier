@@ -17,6 +17,7 @@ target 'HenriPotier' do
   pod 'DZNEmptyDataSet'
   pod 'SVProgressHUD'
   pod 'Sugar'
+  pod 'ReachabilitySwift', '~> 3'
   
   target 'HenriPotierTests' do
     inherit! :search_paths
