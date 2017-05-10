@@ -34,7 +34,16 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
         self.setupCollectionView()
         self.refresh()
         self.setupReachability()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(BooksListViewController.deviceRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
     }
+    
+    func deviceRotated() {
+        self.collectionView.reloadData()
+        
+    }
+    
     
     func setupReachability() {
         reachability.whenReachable = { reachability in
@@ -115,7 +124,12 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.size.width/2-10, height: (self.view.frame.size.width/2)*1.4)
+        if UIApplication.shared.statusBarOrientation == .portrait {
+            return CGSize(width: self.view.frame.size.width/2-10, height: (self.view.frame.size.width/2)*1.4)
+        } else {
+            return CGSize(width: (self.collectionView.frame.size.height*0.6), height: self.collectionView.frame.size.height*0.9)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -16,6 +16,7 @@ class BooksListCollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var coverImageView: UIImageView!
     @IBOutlet var backgroundIV: UIImageView!
+    
     func setContentWith(book: BookVM) {
         
         self.titleLabel.text = book.title
@@ -23,10 +24,12 @@ class BooksListCollectionViewCell: UICollectionViewCell {
         
         self.coverImageView.kf.setImage(with: URL(string: book.cover), placeholder: UIImage(named: "placeholder"))
         self.backgroundIV.kf.setImage(with: URL(string: book.cover), placeholder: UIImage(named: "placeholder"))
+        
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        
         self.contentView.layer.cornerRadius = 5.0
         self.contentView.layer.masksToBounds = true
         self.layer.cornerRadius = 5.0
@@ -34,6 +37,15 @@ class BooksListCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.borderColor = UIColor.lightGray.cgColor
         self.contentView.layer.borderWidth = 0.5
         
-        self.backgroundIV.dropShadow()
+        self.contentView.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor.white
+        
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        self.backgroundIV.layer.shadowPath = nil
+//        self.backgroundIV.dropShadow()
     }
 }
