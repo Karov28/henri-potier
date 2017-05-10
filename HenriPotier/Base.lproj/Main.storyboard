@@ -525,27 +525,28 @@
                                             <constraint firstItem="vib-aP-IQf" firstAttribute="leading" secondItem="BKM-EQ-Aea" secondAttribute="leading" constant="15" id="uBm-7D-ycX"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQR-LA-VBT">
+                                        <rect key="frame" x="0.0" y="8" width="375" height="199"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="199" id="MhR-dQ-IXz"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="imageButtonTapped" destination="fsb-cE-nDM" eventType="touchUpInside" id="smg-18-a34"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MQR-LA-VBT" secondAttribute="trailing" id="2n4-HV-XhP"/>
                                     <constraint firstAttribute="trailing" secondItem="BKM-EQ-Aea" secondAttribute="trailing" id="3af-9o-N5M"/>
+                                    <constraint firstItem="MQR-LA-VBT" firstAttribute="leading" secondItem="YVZ-sA-Hbb" secondAttribute="leading" id="52D-at-vCx"/>
                                     <constraint firstItem="BKM-EQ-Aea" firstAttribute="width" secondItem="YVZ-sA-Hbb" secondAttribute="width" id="U7Z-uQ-Dps"/>
-                                    <constraint firstItem="BKM-EQ-Aea" firstAttribute="top" secondItem="YVZ-sA-Hbb" secondAttribute="top" constant="215" id="Xei-WV-QNl"/>
                                     <constraint firstItem="BKM-EQ-Aea" firstAttribute="leading" secondItem="YVZ-sA-Hbb" secondAttribute="leading" id="Yrf-Y9-bQr"/>
                                     <constraint firstAttribute="bottom" secondItem="BKM-EQ-Aea" secondAttribute="bottom" id="Zwr-Sl-oTD"/>
+                                    <constraint firstItem="BKM-EQ-Aea" firstAttribute="top" secondItem="MQR-LA-VBT" secondAttribute="bottom" constant="8" id="ceF-QI-B7W"/>
+                                    <constraint firstItem="MQR-LA-VBT" firstAttribute="top" secondItem="YVZ-sA-Hbb" secondAttribute="top" constant="8" id="j4s-Bf-e16"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEV-mF-GxJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="OWt-nV-L27"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VxS-SS-0lU" appends="YES" id="m9w-bk-fQf"/>
-                                </connections>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvK-nb-2B8">
                                 <rect key="frame" x="310" y="7" width="50" height="50"/>
                                 <constraints>
@@ -563,20 +564,17 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="UvK-nb-2B8" secondAttribute="trailing" constant="15" id="0jp-mO-RnC"/>
                             <constraint firstItem="tGW-sF-TWO" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" id="2Ak-b1-lwf"/>
-                            <constraint firstItem="rEV-mF-GxJ" firstAttribute="leading" secondItem="bGc-8X-eRY" secondAttribute="leading" id="4r4-tG-mKZ"/>
                             <constraint firstAttribute="trailing" secondItem="YVZ-sA-Hbb" secondAttribute="trailing" id="7q2-nX-NKg"/>
                             <constraint firstItem="4US-HL-l9V" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" constant="20" id="95x-V0-WNR"/>
                             <constraint firstItem="El9-NL-4m4" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" id="ANw-Rf-KQw"/>
                             <constraint firstItem="bA5-DL-eax" firstAttribute="top" secondItem="YVZ-sA-Hbb" secondAttribute="bottom" id="DSv-kx-pNW"/>
                             <constraint firstAttribute="trailing" secondItem="tGW-sF-TWO" secondAttribute="trailing" id="Izj-w6-EKI"/>
                             <constraint firstAttribute="trailing" secondItem="El9-NL-4m4" secondAttribute="trailing" id="LJT-zF-w7D"/>
-                            <constraint firstAttribute="trailing" secondItem="rEV-mF-GxJ" secondAttribute="trailing" id="TND-PH-FT6"/>
                             <constraint firstItem="tGW-sF-TWO" firstAttribute="leading" secondItem="bGc-8X-eRY" secondAttribute="leading" id="Taw-oa-56k"/>
                             <constraint firstItem="El9-NL-4m4" firstAttribute="leading" secondItem="bGc-8X-eRY" secondAttribute="leading" id="Tfk-hA-slT"/>
                             <constraint firstItem="YVZ-sA-Hbb" firstAttribute="leading" secondItem="bGc-8X-eRY" secondAttribute="leading" id="dtf-pD-fxB"/>
                             <constraint firstItem="4US-HL-l9V" firstAttribute="centerX" secondItem="bGc-8X-eRY" secondAttribute="centerX" id="eqB-ZT-SjE"/>
                             <constraint firstItem="UvK-nb-2B8" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" constant="7" id="sMu-m3-TsZ"/>
-                            <constraint firstItem="rEV-mF-GxJ" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" id="usG-bB-BHl"/>
                             <constraint firstItem="YVZ-sA-Hbb" firstAttribute="top" secondItem="aV2-yq-ik2" secondAttribute="bottom" id="xst-u7-m7w"/>
                         </constraints>
                     </view>
@@ -589,13 +587,12 @@
                         <outlet property="synopsisBodyLabel" destination="cNY-gj-Dwx" id="C5S-20-Upx"/>
                         <outlet property="synopsisTitleLabel" destination="J2L-le-1ag" id="BMS-q8-wIH"/>
                         <outlet property="titleLabel" destination="vib-aP-IQf" id="BlI-mL-dHH"/>
-                        <outlet property="topView" destination="rEV-mF-GxJ" id="G2Q-Vf-ssT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56X-YX-s4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="VxS-SS-0lU"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="140"/>
+            <point key="canvasLocation" x="1141.5999999999999" y="139.880059970015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rCK-Xg-pkJ">

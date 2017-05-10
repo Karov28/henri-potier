@@ -9,6 +9,7 @@
 import UIKit
 import Sugar
 import Kingfisher
+import GSImageViewerController
 
 protocol BookDetailsViewControllerDelegate {
     func didAddBookToCart(bookISBN: String)
@@ -60,6 +61,13 @@ class BookDetailsViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func close(sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func imageButtonTapped() {
+        let imageInfo = GSImageInfo(image: self.coverIV.image!, imageMode: .aspectFit)
+        let transitionInfo = GSTransitionInfo(fromView: self.coverIV)
+        let viewer = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
+        present(viewer, animated: true, completion: nil)
     }
     
 //    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {

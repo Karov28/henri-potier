@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.4.0)
   - DZNEmptyDataSet (1.8.1)
+  - GSImageViewerController (1.2.1)
   - Kingfisher (3.6.2)
   - Moya (8.0.3):
     - Moya/Core (= 8.0.3)
@@ -32,6 +33,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - DZNEmptyDataSet
+  - GSImageViewerController
   - Kingfisher (~> 3.0)
   - Moya-ObjectMapper/RxSwift
   - Moya/RxSwift
@@ -45,6 +47,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  GSImageViewerController: 73e84498743987560d24814828baa8f307e0e206
   Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
   Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
   Moya-ObjectMapper: 952be2b261d38cf8d973b7e429708eb03d256e23
@@ -57,6 +60,6 @@ SPEC CHECKSUMS:
   Sugar: e2eb40928c2589bf55977e335a5bc183d09cce24
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: f6ff3618f573eb9cba4c8977112025a808574359
+PODFILE CHECKSUM: 301caa1793693abfe59eacb353cdf0a628e7c939
 
 COCOAPODS: 1.2.1

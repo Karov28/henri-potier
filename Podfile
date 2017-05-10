@@ -18,6 +18,7 @@ target 'HenriPotier' do
   pod 'SVProgressHUD'
   pod 'Sugar'
   pod 'ReachabilitySwift', '~> 3'
+  pod 'GSImageViewerController'
   
   target 'HenriPotierTests' do
     inherit! :search_paths
