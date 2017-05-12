@@ -79,8 +79,10 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
         self.bookDeleted.asObservable()
             .subscribe(onNext: { index in
                 var section = self.selectedBooks.value.last!
-                section.items.remove(at: index)
-                self.selectedBooks.value = [section]
+                if 0...section.items.count-1 ~= index {
+                    section.items.remove(at: index)
+                    self.selectedBooks.value = [section]
+                }
             })
         .disposed(by: disposeBag)
     }

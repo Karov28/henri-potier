@@ -23,7 +23,6 @@ class OffersListRepository: NSObject, OffersListRepositoryProtocol {
     
     func getOffers(books: [String]) -> Observable<Response> {
         
-        
         return self.provider.request(.getOffers(isbns: books))
         .filter({ resp -> Bool in
             return (200...399 ~= resp.statusCode) || resp.statusCode == 404

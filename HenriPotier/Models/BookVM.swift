@@ -16,9 +16,7 @@ class BookVM: NSObject {
     var price: String!
     var synopsis: String!
     
-    
-    var isSelected: Bool = false
-    
+    override init() {}
     
     init(with book: Book) {
         

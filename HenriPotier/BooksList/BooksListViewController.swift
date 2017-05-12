@@ -41,7 +41,6 @@ class BooksListViewController: UIViewController, UICollectionViewDelegateFlowLay
     
     func deviceRotated() {
         self.collectionView.reloadData()
-        
     }
     
     
