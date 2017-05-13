@@ -30,6 +30,7 @@ class Offer: NSObject, Mappable {
     var value: Int!
     var sliceValue: Int?
  
+    override init() { }
     
     required init?(map: Map) { }
     
@@ -65,7 +66,7 @@ class Offer: NSObject, Mappable {
     
     
     func getPercentageReduction(price: Int) -> Int {
-        return price * (value / 100)
+        return price*value/100
     }
     
 }

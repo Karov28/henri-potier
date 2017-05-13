@@ -116,7 +116,7 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
         })
     }
     
-    private func getSelectedBooks() -> [Book] {
+    func getSelectedBooks() -> [Book] {
         let isbns = self.selectedBooks.value.last!.items.map({return $0.isbn})
         var b = [Book]()
         isbns.forEach { isbn in
@@ -164,7 +164,7 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
         })
     }
     
-    private func getBestOffer(subTotal: Int) -> Observable<(Int, Offer?)> {
+    func getBestOffer(subTotal: Int) -> Observable<(Int, Offer?)> {
         return self.getOffers()
         .flatMapLatest({ collection -> Observable<(Int, Offer?)> in
             var bestOffer: Offer?
@@ -182,22 +182,29 @@ class BooksListViewModel: NSObject, BooksListViewModelInput, BooksListViewModelO
         })
     }
     
-    private func getOffers() -> Observable<OffersCollection> {
-        let isbns = self.selectedBooks.value.last!.items.map({return $0.isbn})
-        return self.offersRepository.getOffers(books: isbns as! [String])
-        .map({ response -> Response in
-            if response.statusCode == 404 {
-                let json = ["offers":[]]
-                let data = try! JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions(rawValue: 0))
-                return Response(statusCode: response.statusCode, data: data)
-            }
-            
-            return response
-        })
-        .mapObject(OffersCollection.self)
-        .do(onError: { error in
-            print("error getting offers : \(error.localizedDescription)")
-        })
+    func getOffers() -> Observable<OffersCollection> {
+        if let section = self.selectedBooks.value.last {
+            let isbns = section.items.map({return $0.isbn})
+            return self.offersRepository.getOffers(books: isbns as! [String])
+                .map({ response -> Response in
+                    if response.statusCode == 404 {
+                        let json = ["offers":[]]
+                        let data = try! JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions(rawValue: 0))
+                        return Response(statusCode: response.statusCode, data: data)
+                    }
+                    
+                    return response
+                })
+                .mapObject(OffersCollection.self)
+                .do(onError: { error in
+                    print("error getting offers : \(error.localizedDescription)")
+                })
+        } else {
+            let coll = OffersCollection()
+            coll.offers = []
+            return Observable.just(coll)
+        }
+        
     }
     
 

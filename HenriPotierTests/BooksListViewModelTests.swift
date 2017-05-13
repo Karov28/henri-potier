@@ -104,6 +104,86 @@ class HenriPotierTests: XCTestCase {
         XCTAssertEqual(booksCount, [1,2,1])
     }
     
+    func testTheBestOfferFor60euros() {
+        self.checkBestOffer(price: 60, expectedType: "minus")
+    }
     
+    func testTheBestOfferFor180euros() {
+        self.checkBestOffer(price: 180, expectedType: "percentage")
+    }
+    
+    func testTheBestOfferFor200euros() {
+        self.checkBestOffer(price: 200, expectedType: "slice")
+    }
+    
+    func checkBestOffer(price: Int, expectedType: String) {
+        self.fetchBooks()
+        self.viewModel?.input.bookSelected.onNext("c8fabf68-8374-48fe-a7ea-a00ccd07afff")
+        
+        self.viewModel?.getBestOffer(subTotal: price)
+            .subscribe(onNext: { (subTotal, offer) in
+                XCTAssertEqual(subTotal, price)
+                XCTAssert(offer != nil)
+                XCTAssertEqual(offer!.type, expectedType)
+            })
+            .disposed(by: disposeBag!)
+    }
+    
+    func testBestPriceFor60eurosSubtotal() {
+        let isbn30 = "a460afed-e5e7-4e39-a39d-c885c05db861"
+        
+        self.fetchBooks()
+        self.viewModel?.input.bookSelected.onNext(isbn30)
+        self.viewModel?.input.bookSelected.onNext(isbn30)
+        
+        self.viewModel?.output.selectedBooks.asObservable()
+        .subscribe()
+        .disposed(by: disposeBag!)
+        
+        self.viewModel?.getBestPrice()
+            .subscribe(onNext: { (price, formattedString) in
+                XCTAssertEqual(price, 45)
+            })
+        .disposed(by: disposeBag!)
+    }
+    
+    func testBestPriceFor180eurosSubtotal() {
+        self.fetchBooks()
+        let isbn50 = "bbcee412-be64-4a0c-bf1e-315977acd924"
+        let isbn30 = "a460afed-e5e7-4e39-a39d-c885c05db861"
+        
+        self.viewModel?.input.bookSelected.onNext(isbn30)
+        for _ in 0...2 {
+            self.viewModel?.input.bookSelected.onNext(isbn50)
+        }
+        
+        self.viewModel?.output.selectedBooks.asObservable()
+            .subscribe()
+            .disposed(by: disposeBag!)
+        
+        self.viewModel?.getBestPrice()
+            .subscribe(onNext: { (price, formattedString) in
+                XCTAssertEqual(price, 162)
+            })
+            .disposed(by: disposeBag!)
+    }
+    
+    func testBestPriceFor200eurosSubtotal() {
+        let isbn50 = "bbcee412-be64-4a0c-bf1e-315977acd924"
+        self.fetchBooks()
+        for _ in 0...3 {
+            self.viewModel?.input.bookSelected.onNext(isbn50)
+        }
+        
+        self.viewModel?.output.selectedBooks.asObservable()
+            .subscribe()
+            .disposed(by: disposeBag!)
+        
+        self.viewModel?.getBestPrice()
+            .subscribe(onNext: { (price, formattedString) in
+                XCTAssertEqual(price, 176)
+            })
+            .disposed(by: disposeBag!)
+    }
     
 }

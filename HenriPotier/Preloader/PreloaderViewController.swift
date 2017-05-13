@@ -19,7 +19,7 @@ class PreloaderViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let provider = NetworkConfig(isTesting: false).libraryProvider
+        let provider = NetworkConfig(isTesting: true).libraryProvider
         let bookRepo = BooksListRepository(with: provider)
         let offersRepo = OffersListRepository(with: provider)
         let vm = BooksListViewModel(with: bookRepo, offersRepository: offersRepo)
