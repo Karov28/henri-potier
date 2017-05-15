@@ -23,9 +23,6 @@ class Book: NSObject, Mappable {
         isbn <- map["isbn"]
         title <- map["title"]
         price <- map["price"]
-        if Registry.instance.has(key: "disaprove") {
-            price = price * 2
-        }
         cover <- map["cover"]
         synopsis <- map["synopsis"]
     }

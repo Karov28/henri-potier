@@ -22,7 +22,6 @@ class CartViewController: UIViewController, DZNEmptyDataSetSource {
     @IBOutlet var totalTitleLabel: UILabel!
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var engageButton: UIButton!
-    @IBOutlet var offerLabel: UILabel!
     @IBOutlet var tableViewHeightConstraint: NSLayoutConstraint!
     
     var viewModel: BooksListViewModel!
@@ -113,21 +112,9 @@ class CartViewController: UIViewController, DZNEmptyDataSetSource {
     }
     
     @IBAction func finishButtonTapped() {
-        let alert = UIAlertController(title: nil, message: "hire_message".localized, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "yes".localized, style: .default, handler: { action in
-            Registry.instance.setDisaprovedMode(enabled: false)
-            self.viewModel.selectedBooks.value = [CartSection()]
-            self.performSegue(withIdentifier: "showEnd", sender: nil)
-            self.viewModel.input.refresh.onNext(true)
-        }))
-        alert.addAction(UIAlertAction(title: "no".localized, style: .default, handler: { action in
-            Registry.instance.setDisaprovedMode(enabled: true)
-            self.viewModel.selectedBooks.value = [CartSection()]
-            self.navigationController?.popViewController(animated: true)
-            self.viewModel.input.refresh.onNext(true)
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
+        self.viewModel.selectedBooks.value = [CartSection()]
+        self.performSegue(withIdentifier: "showEnd", sender: nil)
+        self.viewModel.input.refresh.onNext(true)
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
